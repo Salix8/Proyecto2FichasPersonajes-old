@@ -1,0 +1,60 @@
+
+nav {
+    background: #333;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}
+
+    nav > ul {
+        text-align: center;
+        display: inline-block;
+    }
+
+        nav > ul > li {
+            display: inline-block;
+            text-decoration: none;
+            padding: 5px 30px;
+            position: relative;
+            list-style: none;
+            font-size: 25px;
+            border-top: 2px solid #febb32;
+            margin: 20px 10px 10px 10px;
+        }
+
+            nav > ul > li:hover {
+                color: #fff;
+            }
+
+            nav > ul > li > i {
+                color: #1ff;
+                box-sizing: border-box;
+                text-align: right;
+                margin-right: 5px;
+            }
+
+            nav > ul > li > a {
+                color: #1ff;
+                text-decoration: none;
+                font-family: 'Kaushan Script', Serif;
+            }
+
+            nav > ul > li > button {
+                color: #1ff;
+                text-decoration: none;
+                font-family: 'Kaushan Script', Serif;
+                background-color: transparent;
+                border: none;
+                font-size: 25px;
+                width: auto;
+            }
+
+                nav > ul > li > i:hover{
+                    color: #11D0FF;
+                }
+
+                nav > ul > li > a:hover{
+                    color: #11D0FF;
+                }
+
+
