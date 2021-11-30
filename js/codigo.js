@@ -90,9 +90,9 @@ statsNeo.cd = 8 + statsNeo.pb + statsNeo.modCarisma;
 
 htmlStatsNeo += `
     <div class="grid__item">HP</div>
-    <div class="grid__item"><input type="number" name="HP" value="${statsNeo.hp}" maxlength="3" min="0" max="999" required>/${statsNeo.hp}</div>
+    <div class="grid__item"><input type="number" name="HP" value="${statsNeo.hp}" maxlength="3" min="0" max="499" required>/${statsNeo.hp}</div>
     <div class="grid__item">CA</div>
-    <div class="grid__item"><input type="number" name="CA" value="${statsNeo.ca}" maxlength="2" min="0" max="99" required></div>
+    <div class="grid__item"><input type="number" name="CA" value="${statsNeo.ca}" maxlength="2" min="0" max="40" required></div>
     <div class="grid__item">PB</div>
     <div class="grid__item">+${statsNeo.pb}</div>
     <div class="grid__item">Iniciativa</div>

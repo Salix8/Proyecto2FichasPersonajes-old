@@ -21,37 +21,23 @@ window.addEventListener(`load`, ()=>{
     displayBlock(idSingUp);
   });
 
-
-
-  /*###############################################################################*/
-  /*###############################################################################*/
-  /*###############################################################################*/
-  
-  document.getElementsByClassName(`close__login`).addEventListener(`click`, ()=>{
-    displayNone(idLogin);
+  document.getElementById(`close_modal`).addEventListener(`click`, ()=>{
+    displayNone(idLogin); 
   });
-
-  document.getElementsByClassName(`close__login`).onclick = function() {
-    document.getElementById('id_login').style.display = `none`;
-  };
-
-  /*###############################################################################*/
-  /*###############################################################################*/
-  /*###############################################################################*/
     
 });
 
 
-function login(modalLogin) {
+function login(event, modalLogin) {
   //Cuando el usuario haga click en algun lugar fuera del modalLogin, se cierra
-  if (target == modalLogin) {
+  if (event.target == modalLogin) {
     modalLogin.style.display = `none`;
   }
 }
 
-function signUp(modalSingUp) {
+function signUp(event, modalSingUp) {
   //Cuando el usuario haga click en algun lugar fuera del modalSingUp, se cierra
-  if (target == modalSingUp) {
+  if (event.target == modalSingUp) {
     modalSingUp.style.display = `none`;
   }
 }
