@@ -68,16 +68,12 @@ let statsNeo = {
     cd: 0
 };
 
-// function getContenedorStatsNeo() {
-//     return document.querySelector(`.grid__container__neo`);
-// }
-
 const contenedorStatsNeo = document.querySelector(`.grid__container__neo`);
 const caracteristicasNeo = document.querySelector(`.caracteristicas__neo`);
 const habilidadesNeo = document.querySelector(`.card__text__neo`);
 
-let htmlCaracteristicasNeo = ``;
 let htmlStatsNeo = ``;
+let htmlCaracteristicasNeo = ``;
 let htmlHabilidadesNeo = ``;
 
 statsNeo.modFuerza = definirModificador(statsNeo.fuerza);
@@ -92,7 +88,7 @@ htmlStatsNeo += `
     <div class="grid__item">HP</div>
     <div class="grid__item"><input type="number" name="HP" value="${statsNeo.hp}" maxlength="3" min="0" max="499" required>/${statsNeo.hp}</div>
     <div class="grid__item">CA</div>
-    <div class="grid__item"><input type="number" name="CA" value="${statsNeo.ca}" maxlength="2" min="0" max="40" required></div>
+    <div class="grid__item"><input type="number" name="CA" value="${statsNeo.ca}" maxlength="2" min="0" max="40" required>/${statsNeo.ca}</div>
     <div class="grid__item">PB</div>
     <div class="grid__item">+${statsNeo.pb}</div>
     <div class="grid__item">Iniciativa</div>
@@ -493,8 +489,6 @@ htmlHabilidadesNeo += `
     </div>
 `;
 
-// getContenedorStatsNeo().innerHTML = htmlStatsNeo;
-
 contenedorStatsNeo.innerHTML = htmlStatsNeo;
 
 caracteristicasNeo.innerHTML = htmlCaracteristicasNeo;
@@ -504,75 +498,251 @@ habilidadesNeo.innerHTML = htmlHabilidadesNeo;
 //__________________________________________________________________________//
 
 
-statsNoah = [{
+let statsNoah = {
     lv: 3,
     hp: 20,
     ca: 15,
     pb: 2,
-    iniciativa: 3,
-    cd: 14,
-    dice: 8
-}];
+    dice: 8,
+
+    fuerza: 10,
+    destreza: 16,
+    constitucion: 14,
+    inteligencia: 12,
+    sabiduria: 13,
+    carisma: 18,
+
+    modFuerza: 0,
+    modDestreza: 0,
+    modConstitucion: 0,
+    modInteligencia: 0,
+    modSabiduria: 0,
+    modCarisma: 0,
+    cd: 0
+};
 
 const contenedorStatsNoah = document.querySelector(`.grid__container__noah`);
+const caracteristicasNoah = document.querySelector(`.caracteristicas__noah`);
 const habilidadesNoah = document.querySelector(`.card__text__noah`);
 
 let htmlStatsNoah = ``;
+let htmlCaracteristicasNoah = ``;
 let htmlHabilidadesNoah = ``;
 
-for (statNoah in statsNoah){
-    let datos = statsNoah[statNoah];
-    let lv = datos[`lv`];
-    let hp = datos[`hp`];
-    let ca = datos[`ca`];
-    let pb = datos[`pb`];
-    let iniciativa = datos[`iniciativa`];
-    let cd = datos[`cd`];
-    let dice = datos[`dice`];
+statsNoah.modFuerza = definirModificador(statsNoah.fuerza);
+statsNoah.modDestreza = definirModificador(statsNoah.destreza);
+statsNoah.modConstitucion = definirModificador(statsNoah.constitucion);
+statsNoah.modInteligencia = definirModificador(statsNoah.inteligencia);
+statsNoah.modSabiduria = definirModificador(statsNoah.sabiduria);
+statsNoah.modCarisma = definirModificador(statsNoah.carisma);
+statsNoah.cd = 8 + statsNoah.pb + statsNoah.modCarisma;
     
-    htmlStatsNoah += `
-        <div class="grid__item">HP</div>
-        <div class="grid__item"><input type="number" name="HP" value="${hp}" maxlength="3" min="0" max="999" required></div>
-        <div class="grid__item">CA</div>
-        <div class="grid__item"><input type="number" name="CA" value="${ca}" maxlength="2" min="0" max="99" required></div>
-        <div class="grid__item">PB</div>
-        <div class="grid__item">+${pb}</div>
-        <div class="grid__item">Iniciativa</div>
-        <div class="grid__item">+${iniciativa}</div>
-        <div class="grid__item">CD</div>
-        <div class="grid__item">${cd}</div>
-        <div class="grid__item">Hit dice</div>
-        <div class="grid__item"><input type="number" name="CA" value="${lv}" maxlength="2" min="0" max="${lv}" required>d${dice}</div>
-        `;
-
-
-    htmlHabilidadesNoah += `
-        <div class="visible">
-            <div class="habilidad">
-                <a href="https://5e.tools/races.html#changeling_erlw" target="_blank">Cambiaformas  [Shapechanger]</a>
-            </div>
-            <div class="hidden">Como acción, puedes cambiar tu apariencia y tu voz. Usted determina los detalles de los cambios, incluida la coloración, la longitud del cabello y el sexo. También puedes ajustar tu altura y peso, pero no tanto como para que cambie tu talla. Puedes hacerte aparecer como miembro de otra raza, aunque ninguna de las estadísticas de tu juego cambia. No puedes duplicar la apariencia de una criatura que nunca has visto, y debes adoptar una forma que tenga la misma disposición básica de extremidades que tú. Su ropa y equipo no cambian por este rasgo.
-                Te quedas en la nueva forma hasta que uses una acción para volver a tu forma verdadera o hasta que mueras.
-            </div>
-        </div>
-
-        <div class="visible">
-            <div class="habilidad">
-                <a href="https://5e.tools/optionalfeatures.html#blankhash,flstfeature%20type:ei=1" target="_blank">Inspirackon bardica [Bardic Inspiration]</a>
-            </div>
-            <div class="hidden">Puede inspirar a otros a través de palabras o música conmovedoras. Para hacerlo, usa una acción de bonificación en su turno para elegir una criatura que no sea usted mismo a menos de 60 pies de usted que pueda escucharlo. Esa criatura gana un dado de Inspiración de bardo, un d6 . </br>
-                Una vez dentro de los próximos 10 minutos, la criatura puede lanzar el dado y agregar el número obtenido a una prueba de habilidad, tirada de ataque o tirada de salvación que realice. La criatura puede esperar hasta después de tirar el d20 antes de decidir usar el dado de Inspiración de Bardo, pero debe decidir antes de que el DM diga si la tirada tiene éxito o falla. Una vez que se tira el dado de Inspiración de bardo, se pierde. Una criatura solo puede tener un dado de Inspiración de bardo a la vez.</br>
-                Puede utilizar esta función un número de veces igual a su modificador de Carisma (un mínimo de una). Recuperas los usos gastados cuando terminas un descanso prolongado.</br>
-                Tu dado de inspiración de bardo cambia cuando alcanzas ciertos niveles en esta clase. El dado se convierte en un d8 en el nivel 5, un d10 en el nivel 10 y un d12 en el nivel 15.</br>
-            </div>
-        </div>
+htmlStatsNoah += `
+    <div class="grid__item">HP</div>
+    <div class="grid__item"><input type="number" name="HP" value="${statsNoah.hp}" maxlength="3" min="0" max="499" required>/${statsNoah.hp}</div>
+    <div class="grid__item">CA</div>
+    <div class="grid__item"><input type="number" name="CA" value="${statsNoah.ca}" maxlength="2" min="0" max="40" required>/${statsNoah.ca}</div>
+    <div class="grid__item">PB</div>
+    <div class="grid__item">+${statsNoah.pb}</div>
+    <div class="grid__item">Iniciativa</div>
+    <div class="grid__item">+${statsNoah.modDestreza}</div>
+    <div class="grid__item">CD</div>
+    <div class="grid__item">${statsNoah.cd}</div>
+    <div class="grid__item">Hit dice</div>
+    <div class="grid__item"><input type="number" name="CA" value="${statsNoah.lv}" maxlength="2" min="0" max="${statsNoah.lv}" required>d${statsNoah.dice}</div>
     `;
 
-};
+htmlCaracteristicasNoah += `
+<button class="accordion">Stats</button>
+<div class="panel">
+    <div class="contenedor__stats">
+        <div class="tabla__stat">
+            <table class="tabla">
+                <tr>
+                <th colspan="3">Fuerza</th>
+                </tr>
+                <tr>
+                <td>${statsNoah.fuerza}</td>
+                <td>${statsNoah.modFuerza}</td>
+                <td>${statsNoah.modFuerza}</td>
+                </tr>
+                <tr>
+                <td>value</td>
+                <td>mod</td>
+                <td>save</td>
+                </tr>
+                <tr>
+                <td colspan="2">Atletismo</td>
+                <td>-1</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tabla__stat">
+            <table class="tabla">
+                <tr>
+                <th colspan="3">Destreza</th>
+                </tr>
+                <tr>
+                <td>${statsNoah.destreza}</td>
+                <td>+${statsNoah.modDestreza}</td>
+                <td>+${statsNoah.modDestreza}</td>
+                </tr>
+                <tr>
+                <td>value</td>
+                <td>mod</td>
+                <td>save</td>
+                </tr>
+                <tr>
+                <td colspan="2">Acrobacias</td>
+                <td>+${statsNoah.modDestreza}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Juego de manos</td>
+                <td>+${statsNoah.modDestreza}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Sigilo</td>
+                <td class="competente">+${statsNoah.modDestreza + statsNoah.pb}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tabla__stat">
+            <table class="tabla">
+                <tr>
+                <th colspan="3">Constitución</th>
+                </tr>
+                <tr>
+                <td>${statsNoah.constitucion}</td>
+                <td>+${statsNoah.modConstitucion}</td>
+                <td>+${statsNoah.modConstitucion}</td>
+                </tr>
+                <tr>
+                <td>value</td>
+                <td>mod</td>
+                <td>save</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tabla__stat">
+            <table class="tabla">
+                <tr>
+                <th colspan="3">Inteligencia</th>
+                </tr>
+                <tr>
+                <td>${statsNoah.inteligencia}</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                </tr>
+                <tr>
+                <td>value</td>
+                <td>mod</td>
+                <td>save</td>
+                </tr>
+                <tr>
+                <td colspan="2">Arcana</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Historia</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Investigacion</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Naturaleza</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Religion</td>
+                <td>+${statsNoah.modInteligencia}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tabla__stat">
+            <table class="tabla">
+                <tr>
+                <th colspan="3">Sabiduría</th>
+                </tr>
+                <tr>
+                <td>${statsNoah.sabiduria}</td>
+                <td>+${statsNoah.modSabiduria}</td>
+                <td>+${statsNoah.modSabiduria}</td>
+                </tr>
+                <tr>
+                <td>value</td>
+                <td>mod</td>
+                <td>save</td>
+                </tr>
+                <tr>
+                <td colspan="2">Control de animales</td>
+                <td>+${statsNoah.modSabiduria}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Averiguar intenciones</td>
+                <td class="competente">+${statsNoah.modSabiduria + statsNoah.pb}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Medicina</td>
+                <td>+${statsNoah.modSabiduria}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Percepción</td>
+                <td class="competente">+${statsNoah.modSabiduria + statsNoah.pb}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Supervivencia</td>
+                <td class="competente">+${statsNoah.modSabiduria + statsNoah.pb}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tabla__stat">
+            <table class="tabla">
+                <tr>
+                <th colspan="3">Carisma</th>
+                </tr>
+                <tr>
+                <td>${statsNoah.carisma}</td>
+                <td>+${statsNoah.modCarisma}</td>
+                <td>+${statsNoah.modCarisma}</td>
+                </tr>
+                <tr>
+                <td>value</td>
+                <td>mod</td>
+                <td>save</td>
+                </tr>
+                <tr>
+                <td colspan="2">Engaño</td>
+                <td class="competente">+${statsNoah.modCarisma + statsNoah.pb + statsNoah.pb}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Intimidacion</td>
+                <td>+${statsNoah.modCarisma}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Actuación</td>
+                <td class="competente">+${statsNoah.modCarisma}</td>
+                </tr>
+                <tr>
+                <td colspan="2">Persuasón</td>
+                <td class="competente">+${statsNoah.modCarisma + statsNoah.pb + statsNoah.pb}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+`;
+
+
+htmlHabilidadesNoah += ``;
+
 
 contenedorStatsNoah.innerHTML = htmlStatsNoah;
 
-habilidadesNoah.innerHTML = htmlHabilidadesNoah;
+caracteristicasNoah.innerHTML = htmlCaracteristicasNoah;
+
+habilidadesNoah.innerHTML = htmlHabilidadesNeo;
 
 //__________________________________________________________________________//
 

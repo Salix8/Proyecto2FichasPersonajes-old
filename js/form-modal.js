@@ -5,12 +5,12 @@ window.addEventListener(`load`, ()=>{
   // Get the modalSingUp
   var idSingUp = document.getElementById(`id_sign_up`);
 
-  idLogin.addEventListener(`click`, ()=> {
-    login(this);
+  idLogin.addEventListener(`click`, ()=>{
+    displayNone(this);
   });
 
   idSingUp.addEventListener(`click`, ()=>{
-    signUp(this);
+    displayNone(this);
   });
 
   document.getElementById(`btn_login`).addEventListener(`click`, ()=>{
