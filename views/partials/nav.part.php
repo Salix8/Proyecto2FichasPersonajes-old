@@ -1,4 +1,3 @@
-
 <nav>
     <ul>
         <li><i class="fas fa-home"></i><a href="https://docs.google.com/document/d/1ErwHbixwTGKCv8_zN-a0mIzYOPpY2IuX1za58MlD2FA/edit?usp=sharing" target="_blank">Personajes</a></li>
@@ -15,13 +14,12 @@
     </div>  
 </nav>
 
-
-
+<!-- Falta Cambiar las funciones de js -->
 
 <div id="id_login" class="modal">
     <form class="modal__content animate" action="#" method="post">
         <div class="img__container">
-            <span onclick="document.getElementById('id_login').style.display='none'" class="close close__login" title="Close Modal">&times;</span>
+            <span id="close_modal" class="close close__login" title="Close Modal">&times;</span>
             <img src="./img/dado20.PNG" alt="Avatar" class="avatar">
         </div>
     
@@ -44,13 +42,19 @@
         </div>
     </form>
 </div>
-
 <div id="id_sign_up" class="modal">
-    <span onclick="document.getElementById('id_sign_up').style.display='none'" class="close close__sign__up" title="Close Modal">&times;</span>
+    
     <form class="modal__content animate" action="#">
+        
         <div class="container__sing__up">
-            <h1>Sign Up</h1><br>
-            <p>Please fill in this form to create an account.</p><br>
+            <div class="">
+                <div class="">
+                    <h1>Sign Up</h1><br>
+                <p>Please fill in this form to create an account.</p><br>
+                </div>
+                <span onclick="document.getElementById('id_sign_up').style.display='none'" style="display: block;" class="close close__login" title="Close Modal">&times;</span>
+            </div>
+            
             <hr>
             <label for="email"><b>Email</b></label>
             <input type="text" class="entrada entrada__email__sign_up" placeholder="Enter Email" name="email" required>

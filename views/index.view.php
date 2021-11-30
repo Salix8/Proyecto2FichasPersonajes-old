@@ -3,8 +3,9 @@
   include __DIR__ . "/partials/nav.part.php";
 ?>
 
-	<div class="container">
+	<h1 id="auto_title"></h1>
 
+	<div class="container">
 		<div class="card">
 			<div class="card__title"><a href="https://docs.google.com/document/d/13GkyAqg6Wc6tse7WXPV6Tzzg3n8UQT8IF-K-zfKH4ao/edit?usp=sharing" target="_blank">Neo</a></div>
 			<div class="card__center">
@@ -41,7 +42,6 @@
 				<div class="caracteristicas__neo"></div>
 				<div class="card__text__neo"></div>
 			</div>
-			
 			<div><textarea type="text" class="card__textarea" placeholder="Notas"></textarea></div>
 		</div>
 
@@ -55,13 +55,11 @@
 				<div class="caracteristicas__noah"></div>
 				<div class="card__text__noah"></div>
 			</div>
-			
 			<div><textarea type="text" class="card__textarea" placeholder="Notas"></textarea></div>
 		</div>
 	</div>
 
 	<div class="container">
-
 		<div class="card">
 			<div class="card__title"><a href="" target="_blank">Azrael</a></div>
 			<div class="card__center">
@@ -84,7 +82,6 @@
 	</div>
 
 	<div class="container">
-
 		<div class="card">
 			<div class="card__title"><a href="" target="_blank">Torinn</a></div>
 			<div class="card__center">

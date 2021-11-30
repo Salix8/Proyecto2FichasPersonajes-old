@@ -41,13 +41,12 @@ table {
 
 #auto_title{
     text-align: center;
-    color: rgb(17, 180, 255);
-    font-size: 50px;
-    background-color: #df6c0eaa;
+    color: rgb(17, 112, 255);
+    font-size: 80px;
     max-width: 50%;
     border-radius: 5px;
     margin: auto;
-    padding: 10px;
+    padding-top: 10px;
 }
 
 .container{

@@ -16,6 +16,7 @@
 		<script src="./js/form-modal.js"></script>
 		<script src="./js/carrusel.js"></script>
 		<script src="./js/accordion.js"></script>
+		<script src="./js/typewriter.js"></script>
 		
 	</head>
 	<body class="index">
