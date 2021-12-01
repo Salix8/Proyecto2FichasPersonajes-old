@@ -1,6 +1,6 @@
 
 window.addEventListener(`load`, ()=>{
-    setTimeout(typeWriter(), 5000);
+  setTimeout(typeWriter, 2000);
 });
 
 var i = 0;
