@@ -6,11 +6,11 @@ window.addEventListener(`load`, ()=>{
   var idSingUp = document.getElementById(`id_sign_up`);
 
   idLogin.addEventListener(`click`, ()=>{
-    displayNone(this);
+    displayNone(idLogin);
   });
 
   idSingUp.addEventListener(`click`, ()=>{
-    displayNone(this);
+    displayNone(idSingUp);
   });
 
   document.getElementById(`btn_login`).addEventListener(`click`, ()=>{
@@ -42,10 +42,10 @@ function signUp(event, modalSingUp) {
   }
 }
 
-function displayBlock(params) {
-  params.style.display=`block`;
+function displayBlock(parametros) {
+  parametros.style.display=`block`;
 }
 
-function displayNone(params) {
-  params.style.display=`none`;
+function displayNone(parametros) {
+  parametros.style.display=`none`;
 }
